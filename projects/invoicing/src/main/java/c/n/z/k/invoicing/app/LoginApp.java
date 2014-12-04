@@ -6,16 +6,22 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-//@Controller
+@Controller
 public class LoginApp {
 
 	Logger logger = LoggerFactory.getLogger(LoginApp.class);
 
-	@RequestMapping("/")
+	@RequestMapping("/login")
 	String index(HttpSession session) {
 		logger.info("index / will return to the main jsp file");
-		return "/login.html";
+		return "/logins.html";
 	}
 
+	@RequestMapping("/")
+	@ResponseBody
+	String home() {
+		return "to index page !";
+	}
 }
